@@ -250,7 +250,7 @@ public class PdfBoxGraphics2DPaintApplier implements IPdfBoxGraphics2DPaintAppli
             if (((IPdfBoxGraphics2DColor) color).isOverprint())
             {
                 state.ensureExtendedState();
-                state.pdExtendedGraphicsState.setOverprintMode(1.0f);
+                state.pdExtendedGraphicsState.setOverprintMode(1);
                 /*
                  * Till a fixed version of PDFBOX for PDFBOX-5361 is available,
                  * we do this workaround

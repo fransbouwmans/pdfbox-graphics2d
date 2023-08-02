@@ -2,6 +2,7 @@ package de.rototor.pdfbox.graphics2d;
 
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts.FontName;
 
 import java.awt.*;
 import java.io.IOException;
@@ -49,9 +50,9 @@ public class PdfBoxGraphics2DFontTextDrawerDefaultFonts extends PdfBoxGraphics2D
 		if (fontNameEqualsAnyOf(font, Font.SERIF, "Times", "Times New Roman", "Times Roman"))
 			return chooseMatchingTimes(font);
 		if (fontNameEqualsAnyOf(font, "Symbol"))
-			return PDType1Font.SYMBOL;
+			return new PDType1Font(FontName.SYMBOL);
 		if (fontNameEqualsAnyOf(font, "ZapfDingbats", "Dingbats"))
-			return PDType1Font.ZAPF_DINGBATS;
+			return new PDType1Font(FontName.ZAPF_DINGBATS);
 		return null;
 	}
 
@@ -74,12 +75,12 @@ public class PdfBoxGraphics2DFontTextDrawerDefaultFonts extends PdfBoxGraphics2D
 	 */
 	public static PDFont chooseMatchingTimes(Font font) {
 		if ((font.getStyle() & (Font.ITALIC | Font.BOLD)) == (Font.ITALIC | Font.BOLD))
-			return PDType1Font.TIMES_BOLD_ITALIC;
+			return new PDType1Font(FontName.TIMES_BOLD_ITALIC);
 		if ((font.getStyle() & Font.ITALIC) == Font.ITALIC)
-			return PDType1Font.TIMES_ITALIC;
+			return new PDType1Font(FontName.TIMES_ITALIC);
 		if ((font.getStyle() & Font.BOLD) == Font.BOLD)
-			return PDType1Font.TIMES_BOLD;
-		return PDType1Font.TIMES_ROMAN;
+			return new PDType1Font(FontName.TIMES_BOLD);
+		return new PDType1Font(FontName.TIMES_ROMAN);
 	}
 
 	/**
@@ -92,12 +93,12 @@ public class PdfBoxGraphics2DFontTextDrawerDefaultFonts extends PdfBoxGraphics2D
 	 */
 	public static PDFont chooseMatchingCourier(Font font) {
 		if ((font.getStyle() & (Font.ITALIC | Font.BOLD)) == (Font.ITALIC | Font.BOLD))
-			return PDType1Font.COURIER_BOLD_OBLIQUE;
+			return new PDType1Font(FontName.COURIER_BOLD_OBLIQUE);
 		if ((font.getStyle() & Font.ITALIC) == Font.ITALIC)
-			return PDType1Font.COURIER_OBLIQUE;
+			return new PDType1Font(FontName.COURIER_OBLIQUE);
 		if ((font.getStyle() & Font.BOLD) == Font.BOLD)
-			return PDType1Font.COURIER_BOLD;
-		return PDType1Font.COURIER;
+			return new PDType1Font(FontName.COURIER_BOLD);
+		return new PDType1Font(FontName.COURIER);
 	}
 
 	/**
@@ -110,11 +111,11 @@ public class PdfBoxGraphics2DFontTextDrawerDefaultFonts extends PdfBoxGraphics2D
 	 */
 	public static PDFont chooseMatchingHelvetica(Font font) {
 		if ((font.getStyle() & (Font.ITALIC | Font.BOLD)) == (Font.ITALIC | Font.BOLD))
-			return PDType1Font.HELVETICA_BOLD_OBLIQUE;
+			return new PDType1Font(FontName.HELVETICA_BOLD_OBLIQUE);
 		if ((font.getStyle() & Font.ITALIC) == Font.ITALIC)
-			return PDType1Font.HELVETICA_OBLIQUE;
+			return new PDType1Font(FontName.HELVETICA_OBLIQUE);
 		if ((font.getStyle() & Font.BOLD) == Font.BOLD)
-			return PDType1Font.HELVETICA_BOLD;
-		return PDType1Font.HELVETICA;
+			return new PDType1Font(FontName.HELVETICA_BOLD);
+		return new PDType1Font(FontName.HELVETICA);
 	}
 }

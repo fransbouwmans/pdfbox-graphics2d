@@ -1,6 +1,7 @@
 package de.rototor.pdfbox.graphics2d;
 
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts.FontName;
 import org.junit.Test;
 
 import java.awt.*;
@@ -17,51 +18,51 @@ public class PdfBoxGraphics2DFontTextDrawerDefaultFontsTest {
 		Font anyFontItalic = anyFont.deriveFont(Font.ITALIC);
 		Font anyFontBoldItalic = anyFont.deriveFont(Font.BOLD | Font.ITALIC);
 
-		assertEquals(PDType1Font.COURIER, PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingCourier(anyFont));
-		assertEquals(PDType1Font.COURIER_BOLD,
+		assertEquals(new PDType1Font(FontName.COURIER), PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingCourier(anyFont));
+		assertEquals(new PDType1Font(FontName.COURIER_BOLD),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingCourier(anyFontBold));
-		assertEquals(PDType1Font.COURIER_OBLIQUE,
+		assertEquals(new PDType1Font(FontName.COURIER_OBLIQUE),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingCourier(anyFontItalic));
-		assertEquals(PDType1Font.COURIER_BOLD_OBLIQUE,
+		assertEquals(new PDType1Font(FontName.COURIER_BOLD_OBLIQUE),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingCourier(anyFontBoldItalic));
 
-		assertEquals(PDType1Font.HELVETICA,
+		assertEquals(new PDType1Font(FontName.HELVETICA),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingHelvetica(anyFont));
-		assertEquals(PDType1Font.HELVETICA_BOLD,
+		assertEquals(new PDType1Font(FontName.HELVETICA_BOLD),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingHelvetica(anyFontBold));
-		assertEquals(PDType1Font.HELVETICA_OBLIQUE,
+		assertEquals(new PDType1Font(FontName.HELVETICA_OBLIQUE),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingHelvetica(anyFontItalic));
-		assertEquals(PDType1Font.HELVETICA_BOLD_OBLIQUE,
+		assertEquals(new PDType1Font(FontName.HELVETICA_BOLD_OBLIQUE),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingHelvetica(anyFontBoldItalic));
 
-		assertEquals(PDType1Font.TIMES_ROMAN, PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingTimes(anyFont));
-		assertEquals(PDType1Font.TIMES_BOLD,
+		assertEquals(new PDType1Font(FontName.TIMES_ROMAN), PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingTimes(anyFont));
+		assertEquals(new PDType1Font(FontName.TIMES_BOLD),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingTimes(anyFontBold));
-		assertEquals(PDType1Font.TIMES_ITALIC,
+		assertEquals(new PDType1Font(FontName.TIMES_ITALIC),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingTimes(anyFontItalic));
-		assertEquals(PDType1Font.TIMES_BOLD_ITALIC,
+		assertEquals(new PDType1Font(FontName.TIMES_BOLD_ITALIC),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.chooseMatchingTimes(anyFontBoldItalic));
 	}
 
 	@Test
 	public void testDefaultFontMapping() {
-		assertEquals(PDType1Font.HELVETICA,
+		assertEquals(new PDType1Font(FontName.HELVETICA),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode(Font.DIALOG)));
-		assertEquals(PDType1Font.HELVETICA,
+		assertEquals(new PDType1Font(FontName.HELVETICA),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode(Font.DIALOG_INPUT)));
-		assertEquals(PDType1Font.HELVETICA,
+		assertEquals(new PDType1Font(FontName.HELVETICA),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode("Arial")));
 
-		assertEquals(PDType1Font.COURIER,
+		assertEquals(new PDType1Font(FontName.COURIER),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode(Font.MONOSPACED)));
 
-		assertEquals(PDType1Font.TIMES_ROMAN,
+		assertEquals(new PDType1Font(FontName.TIMES_ROMAN),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode(Font.SERIF)));
 
-		assertEquals(PDType1Font.ZAPF_DINGBATS,
+		assertEquals(new PDType1Font(FontName.ZAPF_DINGBATS),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode("Dingbats")));
 
-		assertEquals(PDType1Font.SYMBOL,
+		assertEquals(new PDType1Font(FontName.SYMBOL),
 				PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode("Symbol")));
 
 		assertNull(PdfBoxGraphics2DFontTextDrawerDefaultFonts.mapDefaultFonts(Font.decode("Georgia")));

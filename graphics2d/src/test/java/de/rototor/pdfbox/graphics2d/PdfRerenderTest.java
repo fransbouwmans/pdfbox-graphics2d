@@ -1,5 +1,7 @@
 package de.rototor.pdfbox.graphics2d;
 
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.io.RandomAccessReadBuffer;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -61,7 +63,7 @@ public class PdfRerenderTest
         parentDir.mkdirs();
 
         PDDocument document = new PDDocument();
-        PDDocument sourceDoc = PDDocument.load(PdfRerenderTest.class.getResourceAsStream(name));
+        PDDocument sourceDoc = Loader.loadPDF(new RandomAccessReadBuffer(PdfRerenderTest.class.getResourceAsStream(name)));
 
         for (PDPage sourcePage : sourceDoc.getPages())
         {
@@ -102,7 +104,7 @@ public class PdfRerenderTest
         parentDir.mkdirs();
 
         PDDocument document = new PDDocument();
-        PDDocument sourceDoc = PDDocument.load(PdfRerenderTest.class.getResourceAsStream(name));
+        PDDocument sourceDoc = Loader.loadPDF(new RandomAccessReadBuffer(PdfRerenderTest.class.getResourceAsStream(name)));
 
         for (PDPage sourcePage : sourceDoc.getPages())
         {
@@ -136,7 +138,7 @@ public class PdfRerenderTest
         parentDir.mkdirs();
 
         PDDocument document = new PDDocument();
-        PDDocument sourceDoc = PDDocument.load(PdfRerenderTest.class.getResourceAsStream(name));
+        PDDocument sourceDoc = Loader.loadPDF(new RandomAccessReadBuffer(PdfRerenderTest.class.getResourceAsStream(name)));
 
         for (PDPage sourcePage : sourceDoc.getPages())
         {

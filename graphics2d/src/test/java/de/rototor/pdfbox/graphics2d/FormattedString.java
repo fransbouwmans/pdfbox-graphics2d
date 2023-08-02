@@ -121,7 +121,7 @@ public class FormattedString {
 	private StringBuilder str;
 
 	public FormattedString(String formattedString) {
-		markups = new ArrayList<>();
+		markups = new ArrayList<Markup>();
 		this.formattedString = formattedString;
 		str = new StringBuilder(formattedString.length());
 		i = 0;
